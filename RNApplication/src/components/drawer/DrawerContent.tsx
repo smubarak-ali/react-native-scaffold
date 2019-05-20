@@ -23,17 +23,22 @@ const DrawerContent: FC<Props> = (props) => {
                 <ListItem
                     key="1"
                     title="Home"
-                    onPress={() => Actions.home()}
+                    onPress={() => Actions.homeTab()}
+                />
+                <ListItem
+                    key="4"
+                    title="Info"
+                    onPress={() => Actions.info()}
                 />
                 <ListItem
                     key="3"
                     title="Settings"
-                    onPress={() => Actions.settings()}
+                    onPress={() => Actions.settingsTab()}
                 />
                 <ListItem
                     key="2"
                     title="Login"
-                    onPress={() => Actions.login()} />
+                    onPress={() => Actions.auth()} />
             </View>
         </View>
     );

@@ -1,7 +1,9 @@
 import React, { PureComponent } from "react";
 import { StyleSheet, View } from "react-native";
-import { Text } from "react-native-elements";
+import { Text, Divider } from "react-native-elements";
 import { connect } from "react-redux";
+import { Actions } from "react-native-router-flux";
+
 import MyHeader from "../../components/header/MyHeader";
 
 interface Props { 
@@ -23,6 +25,9 @@ class HomeScreen extends PureComponent<Props, State> {
             <MyHeader key="1" title="Home" />,
             <View key="2" style={styles.containerStyle}>
                 <Text>Welcome, {email}</Text>
+                <Divider />
+
+                <Text onPress={() => Actions.info()}>Go to Info</Text>
             </View>
         ])
     }

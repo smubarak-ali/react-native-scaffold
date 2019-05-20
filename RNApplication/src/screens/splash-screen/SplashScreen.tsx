@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { View, StyleSheet, StatusBar } from "react-native";
 import { Text } from "react-native-elements";
 import { Actions } from "react-native-router-flux";
@@ -9,8 +9,13 @@ interface Props { }
 
 const SplashScreen: FC<Props> = (props) => {
 
+    const [hideStatusBar, setHideStatusBar] = useState(true);
+
     useEffect(() => {
-        const timeout = setTimeout(() => Actions.home(), 2000);
+        const timeout = setTimeout(() => {
+            setHideStatusBar(false);
+            Actions.homeTab();
+        }, 1500);
 
         return () => {
             clearTimeout(timeout);
@@ -18,7 +23,7 @@ const SplashScreen: FC<Props> = (props) => {
     })
 
     return <>
-        <StatusBar hidden />
+        <StatusBar hidden={hideStatusBar} />
         <View style={styles.containerStyle}>
             <Text style={styles.welcomeTextStyle}>
                 Welcome to App
