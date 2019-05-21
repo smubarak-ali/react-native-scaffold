@@ -29,28 +29,32 @@ const Routes: FC<Props> = (props) => {
         );
     }
 
+    const BackIcon = () => <Icon name="ios-arrow-back" size={28} color={colors.grey_black} />;
+
+    const MenuIcon = () => <Icon name="ios-menu" size={28} color={colors.white} style={{ marginLeft: 5 }} />;
+
     return (
         <Router>
-            <Scene key="root" hideNavBar>
+            <Scene key="root" hideNavBar titleStyle={styles.navigationBarTitleStyle} navigationBarStyle={styles.navigationBarStyle}>
                 <Scene key="splash" component={SplashScreen} initial hideNavBar />
                 
                 <Stack key="auth" hideNavBar>
                     <Scene key="login" component={LoginScreen} hideNavBar initial />
                 </Stack>
                 
-                <Drawer key="drawer" hideNavBar drawer contentComponent={DrawerContent}>
-                    <Scene hideNavBar panHandler={null}>
+                <Drawer key="drawer" hideNavBar drawer contentComponent={DrawerContent} type="reset" drawerWidth={270} drawerIcon={MenuIcon}>
+                    {/* <Scene hideNavBar panHandlers={null}> */}
                         <Tabs key="tabbar" swipeEnabled tabBarStyle={styles.tabBar} showLabel={false}>
-                            <Scene key="homeTab" title="Home" iconName="ios-home" icon={TabIcon} hideNavBar initial>
-                                <Scene key="home" component={HomeScreen} initial hideNavBar />
-                                <Scene key="info" component={InfoScreen} hideNavBar />
+                            <Scene key="homeTab" title="Home" iconName="ios-home" icon={TabIcon} initial>
+                                <Scene key="home" title="Home" component={HomeScreen} initial />
+                                <Scene key="info" title="Information" component={InfoScreen} back />
                             </Scene>
 
                             <Scene key="settingsTab" title="Settings" iconName="ios-settings" icon={TabIcon} hideNavBar>
                                 <Scene key="settings" component={SettingsScreen} hideNavBar />
                             </Scene>
                         </Tabs>
-                    </Scene>
+                    {/* </Scene> */}
                 </Drawer>
             </Scene>
         </Router>
@@ -68,11 +72,11 @@ const styles = StyleSheet.create({
         opacity: 1
     },
     navigationBarStyle: {
-        backgroundColor: 'red',
+        backgroundColor: colors.primary,
     },
     navigationBarTitleStyle: {
         color: 'white',
-        fontSize: 14
+        // fontSize: 14
     },
 })
 

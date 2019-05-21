@@ -22,7 +22,7 @@ class HomeScreen extends PureComponent<Props, State> {
         const { email } = this.props;
 
         return ([
-            <MyHeader key="1" title="Home" />,
+            // <MyHeader key="1" title="Home" />,
             <View key="2" style={styles.containerStyle}>
                 <Text>Welcome, {email}</Text>
                 <Divider />

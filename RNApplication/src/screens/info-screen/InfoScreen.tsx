@@ -12,7 +12,7 @@ const InfoScreen: FC<Props> = (props) => {
 
     return (
         <>
-            <MyHeader title="Information" showBackBtn />
+            {/* <MyHeader title="Information" showBackBtn /> */}
             <View style={styles.containerStyle}>
                 <Text>Welcome to Information!</Text>
                 <Divider />
